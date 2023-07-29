@@ -3,10 +3,14 @@ import { useState } from 'react'
 import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi"
 import UserMenuItem from './UserMenuItem';
+import { useAppDispatch } from '@/app/redux/hooks';
+import { loginModalFunc, registerModalFunc } from '@/app/redux/modalSlice';
 
 
 const UserMenu = () => {
     const [openMenu, setOpenMenu] = useState(false)
+    const dispatch = useAppDispatch();
+
 
     return (
         <div onClick={() => setOpenMenu(!openMenu)} className='relative flex items-center gap-2 cursor-pointer'>
@@ -27,11 +31,10 @@ const UserMenu = () => {
                             <>
                                 <UserMenuItem
                                     name="Sign In"
-                                    onClick={() => { }}
-                                />
+                                    onClick={() => { dispatch(loginModalFunc()) }} />
                                 <UserMenuItem
                                     name="Sign Up"
-                                    onClick={() => { }}
+                                    onClick={() => { dispatch(registerModalFunc()) }}
                                 />
                             </>
 
