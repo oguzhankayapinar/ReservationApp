@@ -1,10 +1,9 @@
-import React from 'react'
+'use client'
 
 interface UserMenuItemProps {
     name: string;
     onClick: () => void;
 }
-
 const UserMenuItem: React.FC<UserMenuItemProps> = ({
     name,
     onClick
